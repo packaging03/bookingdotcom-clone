@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 import { fetchResults } from "@/lib/fetchResults";
 import Link from "next/link";
 import { notFound } from "next/navigation";

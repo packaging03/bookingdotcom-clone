@@ -2,8 +2,12 @@ import { SearchParams } from "@/app/search/page";
 import { Result } from "../../typings";
 
 export async function fetchResults(searchParams: SearchParams) {
+  console.log("ams");
+  console.log("SearchParams", searchParams);
   const username = process.env.OXYLABS_USERNAME;
   const password = process.env.OXYLABS_PASSWORD;
+
+  console.log(username, password);
 
   const url = new URL(searchParams.url);
   Object.keys(searchParams).forEach((key) => {
@@ -141,6 +145,7 @@ export async function fetchResults(searchParams: SearchParams) {
   })
     .then((response) => response.json())
     .then((data) => {
+      console.log(data);
       if (data.results.length === 0) return;
       const result: Result = data.results[0];
 

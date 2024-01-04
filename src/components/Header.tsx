@@ -1,18 +1,17 @@
-/* eslint-disable @next/next/no-img-element */
 "use client";
 
-import { Popover, Transition, Dialog, Disclosure } from "@headlessui/react";
+import Link from "next/link";
+import { Fragment, useState } from "react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import {
   ChatBubbleLeftIcon,
-  HomeIcon,
   ChevronDownIcon,
+  HomeIcon,
+  PaperAirplaneIcon,
   PhoneIcon,
   PlayCircleIcon,
-  PaperAirplaneIcon,
 } from "@heroicons/react/20/solid";
-import Link from "next/link";
-import React, { Fragment, useState } from "react";
+import { Dialog, Disclosure, Popover, Transition } from "@headlessui/react";
 import { cn } from "@/lib/utils";
 
 const products = [
@@ -30,11 +29,12 @@ const products = [
   },
   {
     name: "Contact our Support Team",
-    description: "Your customers' data will be safe and secure",
+    description: "Your customers’ data will be safe and secure",
     href: "#",
     icon: ChatBubbleLeftIcon,
   },
 ];
+
 const callsToAction = [
   { name: "See Demo Booking", href: "#", icon: PlayCircleIcon },
   { name: "Contact Support", href: "#", icon: PhoneIcon },
@@ -42,6 +42,7 @@ const callsToAction = [
 
 function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
   return (
     <header className="bg-[#013B94]">
       <nav
@@ -58,6 +59,7 @@ function Header() {
             />
           </Link>
         </div>
+
         <div className="flex lg:hidden">
           <button
             type="button"
@@ -78,6 +80,7 @@ function Header() {
                 aria-hidden="true"
               />
             </Popover.Button>
+
             <Transition
               as={Fragment}
               enter="transition ease-out duration-200"
@@ -100,6 +103,7 @@ function Header() {
                           aria-hidden="true"
                         />
                       </div>
+
                       <div className="flex-auto">
                         <a
                           href={item.href}
@@ -115,7 +119,8 @@ function Header() {
                     </div>
                   ))}
                 </div>
-                <div className="grid  grid-cols-2 divide-x divide-gray-900/5 bg-gray-50">
+
+                <div className="grid grid-cols-2 divide-x divide-gray-900/5 bg-gray-50">
                   {callsToAction.map((item) => (
                     <a
                       key={item.name}
@@ -125,7 +130,7 @@ function Header() {
                       <item.icon
                         className="h-5 w-5 flex-none text-[#013B94]"
                         aria-hidden="true"
-                      />{" "}
+                      />
                       {item.name}
                     </a>
                   ))}
@@ -133,6 +138,7 @@ function Header() {
               </Popover.Panel>
             </Transition>
           </Popover>
+
           <a href="#" className="text-sm font-semibold leading-6 text-white">
             Flights
           </a>
@@ -146,12 +152,14 @@ function Header() {
             Flight + Hotel
           </a>
         </Popover.Group>
-        <div className="hidden lg:flex  lg:flex-1 lg:justify-end">
+
+        <div className="hidden lg:flex lg:flex-1 lg:justify-end">
           <a href="#" className="text-sm font-semibold leading-6 text-white">
             Log in <span aria-hidden="true">&rarr;</span>
           </a>
         </div>
       </nav>
+
       <Dialog
         as="div"
         className="lg:hidden"
@@ -159,6 +167,7 @@ function Header() {
         onClose={setMobileMenuOpen}
       >
         <div className="fixed inset-0 z-10" />
+
         <Dialog.Panel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-[#013B94] px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
           <div className="flex items-center justify-between">
             <a href="#" className="-m-1.5 p-1.5">
@@ -166,18 +175,19 @@ function Header() {
               <img
                 className="h-8 w-auto"
                 src="https://static1.squarespace.com/static/5bde0f00c3c16aa95581e2e2/62b4cb1add9d257dd43bb03d/62b653fedc7c895918d19b24/1656116254983/booking+logo+white.png?format=1500w"
-                alt="nothing"
+                alt=""
               />
             </a>
             <button
               type="button"
-              className="-m-2.5  rounded-md p-2.5 text-white"
+              className="-m-2.5 rounded-md p-2.5 text-white"
               onClick={() => setMobileMenuOpen(false)}
             >
               <span className="sr-only">Close menu</span>
               <XMarkIcon className="h-6 w-6" aria-hidden="true" />
             </button>
           </div>
+
           <div className="mt-6 flow-root">
             <div className="-my-6 divide-y divide-gray-500/10">
               <div className="space-y-2 py-6">
@@ -233,14 +243,15 @@ function Header() {
                 >
                   Flight + Hotel
                 </a>
-                <div className="py-6">
-                  <a
-                    href="#"
-                    className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold  leading-7 text-white hover:bg-blue-800"
-                  >
-                    Log In
-                  </a>
-                </div>
+              </div>
+
+              <div className="py-6">
+                <a
+                  href="#"
+                  className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-white hover:bg-blue-800"
+                >
+                  Log In
+                </a>
               </div>
             </div>
           </div>

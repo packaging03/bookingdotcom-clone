@@ -59,7 +59,6 @@ function SearchForm() {
   });
 
   function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
 
     const checkin_monthday = values.dates.from.getDate().toString();
     const checkin_month = (values.dates.from.getMonth() + 1).toString();
@@ -78,8 +77,9 @@ function SearchForm() {
     url.searchParams.set("no_rooms", values.rooms);
     url.searchParams.set("checkin", checkin);
     url.searchParams.set("checkout", checkout);
-
+    // console.log(url);
     router.push(`/search?url=${url.href}`);
+    // router.push(`/search?${url.href}`);
   }
 
   return (
