@@ -20,7 +20,7 @@ async function SearchPage({ searchParams }: Props) {
 
   const results = await fetchResults(searchParams);
 
-  if (!results) return <div>No results...</div>;
+  if (!results) return <div>Sorry, your API trial period has expired</div>;
 
   return (
     <section>
